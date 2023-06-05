@@ -48,8 +48,15 @@ namespace Flappy_Bird
             }
 
             if (score>5) pipeSpeed = 15;
+            if (score > 15) pipeSpeed = 15;
+            if (score > 25) pipeSpeed = 15;
+            if (score > 35) pipeSpeed = 15;
+            if (score > 45) pipeSpeed = 15;
+            if (score > 55) pipeSpeed = 15;
+            if (score > 65) pipeSpeed = 15;
+            if (score > 75) pipeSpeed = 15;
+            if (score > 85) pipeSpeed = 15;
 
-           
 
         }
 

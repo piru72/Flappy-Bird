@@ -24,9 +24,14 @@ namespace Flappy_Bird
         private void gameTimerEvent(object sender, EventArgs e)
         {
            if (controller.GameIsInIntialMode)
-            {
                 initialGameSetup();
-            }
+
+           if (controller.GameIsStartMode)
+                   gameStartSetup();
+            
+
+
+
            
 
         }
@@ -48,6 +53,9 @@ namespace Flappy_Bird
             pictureRetryButon.Visible = visibility;
         }
         private void gameStartSetup () {
+            setupVisibility(true);
+            pictureRetryButon.Visible = false;
+            picturePlayButton.Visible = false;
 
             manageFrame();
 
@@ -121,6 +129,25 @@ namespace Flappy_Bird
         {
             gameTimer.Stop();
             labelScore.Text += " GAME OVER!!";
+        }
+
+        
+
+        private void picturePlayButtonOnClick(object sender, EventArgs e)
+        {
+            gameTimer.Start();
+            controller.gameStart();
+        }
+
+        private void pictureRetryButon_Click(object sender, EventArgs e)
+        {
+            pictureBird.Top = 156;
+            picturePipeBottom.Left = 500;
+            picturePipeTop.Left = 500;
+
+            controller.Score = 0;
+            gameTimer.Start();
+            controller.gameStart();
         }
     }
 }

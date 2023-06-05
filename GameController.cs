@@ -21,10 +21,11 @@ namespace Flappy_Bird
             gravity = 8;
             gameState = 1;
         }
-        public int Score { get { return score; } }
+        public int Score { get { return score; }  set { score = value; } }
         public int GameState { get { return gameState; } }
 
         public bool GameIsInIntialMode { get { return gameState == 0 ; } }
+        public bool GameIsStartMode { get { return gameState == 1; } }
         public int PipeSpeed { get
             {
                 

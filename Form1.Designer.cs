@@ -32,11 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.picturePlayButton = new System.Windows.Forms.PictureBox();
             this.pictureRetryButon = new System.Windows.Forms.PictureBox();
             this.pictureBird = new System.Windows.Forms.PictureBox();
             this.picturePipeBottom = new System.Windows.Forms.PictureBox();
             this.pictureGroundBottom = new System.Windows.Forms.PictureBox();
             this.picturePipeTop = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePlayButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRetryButon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBird)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePipeBottom)).BeginInit();
@@ -70,15 +72,27 @@
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimerEvent);
             // 
+            // picturePlayButton
+            // 
+            this.picturePlayButton.Image = global::Flappy_Bird.Properties.Resources.play_button;
+            this.picturePlayButton.Location = new System.Drawing.Point(276, 245);
+            this.picturePlayButton.Name = "picturePlayButton";
+            this.picturePlayButton.Size = new System.Drawing.Size(90, 90);
+            this.picturePlayButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picturePlayButton.TabIndex = 7;
+            this.picturePlayButton.TabStop = false;
+            this.picturePlayButton.Click += new System.EventHandler(this.picturePlayButtonOnClick);
+            // 
             // pictureRetryButon
             // 
             this.pictureRetryButon.Image = global::Flappy_Bird.Properties.Resources.retry_button;
-            this.pictureRetryButon.Location = new System.Drawing.Point(336, 245);
+            this.pictureRetryButon.Location = new System.Drawing.Point(372, 245);
             this.pictureRetryButon.Name = "pictureRetryButon";
-            this.pictureRetryButon.Size = new System.Drawing.Size(88, 85);
+            this.pictureRetryButon.Size = new System.Drawing.Size(90, 90);
             this.pictureRetryButon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureRetryButon.TabIndex = 6;
             this.pictureRetryButon.TabStop = false;
+            this.pictureRetryButon.Click += new System.EventHandler(this.pictureRetryButon_Click);
             // 
             // pictureBird
             // 
@@ -125,6 +139,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
             this.ClientSize = new System.Drawing.Size(795, 690);
+            this.Controls.Add(this.picturePlayButton);
             this.Controls.Add(this.pictureRetryButon);
             this.Controls.Add(this.labelScore);
             this.Controls.Add(this.label1);
@@ -136,6 +151,7 @@
             this.Text = "Flappy Bird";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameKeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameKeyIsUp);
+            ((System.ComponentModel.ISupportInitialize)(this.picturePlayButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRetryButon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBird)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePipeBottom)).EndInit();
@@ -156,6 +172,7 @@
         private System.Windows.Forms.Label labelScore;
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.PictureBox pictureRetryButon;
+        private System.Windows.Forms.PictureBox picturePlayButton;
     }
 }
 

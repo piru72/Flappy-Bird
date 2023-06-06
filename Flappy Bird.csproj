@@ -99,5 +99,20 @@
   <ItemGroup>
     <None Include="Images\play_button.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\no_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\pause_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\menu_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Asset 1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

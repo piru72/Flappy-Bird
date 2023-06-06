@@ -8,11 +8,13 @@ namespace Flappy_Bird
     {
 
         GameController controller;
+        Random random;
         public Form1()
         {
             InitializeComponent();
             controller = new GameController();
             controller.initializeGame();
+            random = new Random();
 
         }
 
@@ -56,10 +58,12 @@ namespace Flappy_Bird
             setupVisibility(true);
             pictureRetryButon.Visible = false;
             picturePlayButton.Visible = false;
+            pictureExitButton.Visible = false;
 
             manageFrame();
 
             managePipes();
+            manageClouds();
 
             manageGameState();
         }
@@ -69,6 +73,10 @@ namespace Flappy_Bird
             pictureBird.Top += controller.Gravity;
             picturePipeBottom.Left -= controller.PipeSpeed;
             picturePipeTop.Left -= controller.PipeSpeed;
+            pictureCloud1.Left -= 10;
+            pictureCloud2.Left -= 20;
+            pictureCloud3.Left -= 15;
+            pictureCloud4.Left -= 15;
             labelScore.Text = "Score :" + controller.Score.ToString();
         }
 
@@ -94,16 +102,45 @@ namespace Flappy_Bird
 
         private void managePipes()
         {
+            //managePipe(picturePipeTop, -150, 800, 900, 400);
+            
             if (picturePipeTop.Left < -150)
             {
-                picturePipeTop.Left = 800;
+                picturePipeTop.Left = random.Next(800, 900); ;
+                picturePipeBottom.Top = random.Next(400, 600); ;
                 controller.increaseScore();
             }
             if (picturePipeBottom.Left < -180)
             {
-                picturePipeBottom.Left = 950;
+                picturePipeBottom.Left = random.Next(900, 1001); ;
                 controller.increaseScore();
             }
+        }
+
+        
+
+        private void manageClouds()
+        {
+            if (pictureCloud1.Left < -150)
+            
+                pictureCloud1.Left = random.Next(700, 1001); ;
+
+
+            if (pictureCloud2.Left < -250)
+                pictureCloud2.Left = random.Next(800, 900); ;
+
+
+            if (pictureCloud3.Left < -50)
+            {
+                pictureCloud3.Left = random.Next(500, 700); ;
+
+            }
+            if (pictureCloud4.Left < -100)
+            {
+                pictureCloud4.Left = random.Next(600, 801); ;
+
+            }
+
         }
 
        
@@ -144,10 +181,24 @@ namespace Flappy_Bird
             pictureBird.Top = 156;
             picturePipeBottom.Left = 500;
             picturePipeTop.Left = 500;
+            
+            controller.PipeSpeed = 15;
 
             controller.Score = 0;
             gameTimer.Start();
             controller.gameStart();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+       
     }
 }

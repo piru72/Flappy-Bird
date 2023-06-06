@@ -39,7 +39,9 @@ namespace Flappy_Bird
                 if (score > 75) pipeSpeed = 85;
                 if (score > 85) pipeSpeed = 95;
                 return pipeSpeed; 
-            } }
+            }
+            set { pipeSpeed= value; }
+        }
         public int Gravity { get { return gravity; } set { gravity = value; } }
         
 
